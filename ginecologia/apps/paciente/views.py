@@ -28,10 +28,10 @@ def dashboard_view(request):
 			msg = EmailMultiAlternatives('Correo Cumpleañeras',html_content,'from@server.com',[to_amin])
 			msg.attach_alternative(html_content, 'text/html') #defino el contenido ocomo html
 			msg.send()#Envio el correo
-			enviar = True
+			#enviar = True , 'enviar':enviar
 
 		
-		ctx 	= {'msj':mensaje,  'day':dia , 'month':mes, 'pacientes':pacientes, 'happyday':happyday, 'enviar':enviar}
+		ctx 	= {'msj':mensaje,  'day':dia , 'month':mes, 'pacientes':pacientes, 'happyday':happyday}
 
 		return render_to_response('ginecologo/dashboard.html', ctx,  context_instance=RequestContext(request))
 	else:
